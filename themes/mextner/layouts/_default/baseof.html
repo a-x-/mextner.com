@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="{{ .Site.Home.RelPermalink }}" class="logo">Mextner Lab</a>
+            <a href="{{ .Site.Home.RelPermalink }}" class="logo">Mextner <span class="logo-lab">Lab</span></a>
             <nav>
                 <ul>
                     {{ range .Site.Menus.main }}
@@ -76,17 +76,19 @@
     </main>
     <footer>
         <div class="container">
-            <div class="footer-col">
-                <h4>{{ T "contact_us" }}</h4>
-                <p>Telegram: <a href="https://t.me/mextner">@mextner</a></p>
+            <div class="footer-row-top">
+                <div class="footer-col">
+                    <h4>{{ T "contact_us" }}</h4>
+                    <p>Telegram: <a href="https://t.me/mextner">@mextner</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>{{ T "social_media" }}</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/FrontDev" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>{{ T "social_media" }}</h4>
-                <ul>
-                    <li><a href="https://linkedin.com/in/FrontDev" target="_blank">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
+            <div class="footer-col footer-legal">
                 <h4>{{ T "legal_information" }}</h4>
                 <p>© {{ now.Format "2006" }} Mextner Lab. — {{ T "resident_of_it_park" }}</p>
             </div>

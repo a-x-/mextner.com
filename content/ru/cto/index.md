@@ -2,13 +2,13 @@
 title: "CTO"
 ---
 
-<section id="about-hero" style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
-  <div style="flex: 0 0 200px;">
-    <img src="/images/alex-ultra-cto.jpeg" alt="Alex Ultra" style="width: 100%; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<section id="about-hero" class="cto-hero">
+  <div class="cto-avatar">
+    <img src="/images/alex-ultra-cto.jpeg" alt="Alex Ultra">
   </div>
-  <div style="flex: 1;">
-    <h1 style="margin: 0 0 0.5rem 0;">Alex Ultra</h1>
-    <p style="margin: 0;">CTO и Lead Senior Full-Stack Engineer, специализирующийся на UX, TypeScript, React, и высокопроизводительных веб-приложениях с использованием Canvas/WASM и Node.js/Python.</p>
+  <div class="cto-content">
+    <h1>Alex Ultra</h1>
+    <p>CTO и Lead Senior Full-Stack Engineer, специализирующийся на UX, TypeScript, React, и высокопроизводительных веб-приложениях с использованием Canvas/WASM и Node.js/Python.</p>
   </div>
 </section>
 
