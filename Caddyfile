@@ -1,8 +1,3 @@
-# Caddyfile for mextner.com
-{
-    email alex@mextner.com
-}
-
 # Redirect www to non-www
 www.mextner.com {
     redir https://mextner.com{uri} permanent
