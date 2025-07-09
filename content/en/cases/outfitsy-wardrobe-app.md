@@ -22,7 +22,7 @@ We provided strategic technical consulting and team building services:
 * **Team Recruitment:** Helped hire mobile developers, UI/UX designers, and ML engineers
 * **Technical Strategy:** Developed a roadmap for MVP launch and feature scaling
 
-<img width="100%" src="/images/outfitsy-case.png" alt="Outfitsy Wardrobe App" />
+<img width="100%" src="/images/cases/outfitsy-case.png" alt="Outfitsy Wardrobe App" />
 
 ## Key Features Consulted On
 

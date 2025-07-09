@@ -22,7 +22,7 @@ We led the complete IT transformation:
 * **Protocol Reverse Engineering:** Led the team in decoding binary protocols for Tesla vehicle communication
 * **Brand Development:** Created comprehensive branding strategy and visual identity for the product
 
-<img width="100%" src="/images/skadiauto-case.png" alt="SkadiAuto Tesla Diagnostics Platform" />
+<img width="100%" src="/images/cases/skadiauto-case.png" alt="SkadiAuto Tesla Diagnostics Platform" />
 
 ## Key Achievements
 

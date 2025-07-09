@@ -22,7 +22,7 @@ We architected and developed a high-load portal from scratch, focusing on scalab
 * **Real-time Features:** Built instant payment processing reducing transaction time from hours to minutes
 * **Document Automation:** Created automated document collection system achieving 100% completion rate (up from 30%)
 
-<img width="100%" src="/images/konsol-pro-case.png" alt="Konsol.pro Platform Interface" />
+<img width="100%" src="/images/cases/konsol-pro-case.png" alt="Konsol.pro Platform Interface" />
 
 ## Key Features Implemented
 

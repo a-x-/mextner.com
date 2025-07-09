@@ -16,7 +16,7 @@ As part of a consulting project for X-Bank, we were tasked with designing and de
 
 The architecture was proposed and implemented on Canvas and Solid.js. The layout is based on four draggable panels. The scalping terminal allows the trader to quickly place orders and monitor the market.
 
-<img width="100%" src="/images/scalp-xbank-2025.jpeg" alt="Scalping order book interface" />
+<img width="100%" src="/images/cases/scalp-xbank-2025.jpeg" alt="Scalping order book interface" />
 
 * **Trades Feed and Clusters:** Visualization of order flow and aggregated volumes at different price levels.
 * **Interactive Order Book:** Dynamic display of limit orders with one-click trading capabilities.

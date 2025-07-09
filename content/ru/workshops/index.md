@@ -6,8 +6,8 @@ translationKey: "workshops"
 <section id="workshops-hero">
   <p>Интенсивные практические курсы для вашей команды.</p>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-    <img src="/images/workshop_2025-07-09.jpeg" alt="RAG воркшоп в процессе" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-    <img src="/images/workshop_moscow.jpeg" alt="MCP воркшоп в Москве" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <img src="/images/workshops/workshop_2025-07-09.jpeg" alt="RAG воркшоп в процессе" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <img src="/images/workshops/workshop_moscow.jpeg" alt="MCP воркшоп в Москве" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
   </div>
 </section>
 

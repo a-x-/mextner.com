@@ -22,7 +22,7 @@ We provided comprehensive technical consulting services:
 * **Team Building:** Helped recruit and interview ML engineers and backend developers specializing in computer vision
 * **Technical Roadmap:** Created a detailed technical implementation plan for MVP and future scaling
 
-<img width="100%" src="/images/dresscoder-case.png" alt="Dresscoder Fashion AI Platform" />
+<img width="100%" src="/images/cases/dresscoder-case.png" alt="Dresscoder Fashion AI Platform" />
 
 ## Key Features Implemented
 
