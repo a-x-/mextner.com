@@ -849,6 +849,8 @@ article .date {
 		margin: 0 -2.5%;
 		padding: 0.5rem 2.5%;
 		border-radius: 8px;
+		perspective: 800px;
+		perspective-origin: center center;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -867,7 +869,7 @@ article .date {
 		-ms-overflow-style: none;
 		padding: 0.25rem 0;
 		margin: 0;
-		gap: 0.6rem;
+		gap: 0.4rem;
 		flex: 1;
 	}
 
@@ -909,11 +911,26 @@ article .date {
 	header nav ul li {
 		margin: 0;
 		flex-shrink: 0;
+		transform: perspective(200px) rotateY(-30deg) translateX(-5px);
+		transform-origin: left center;
+		transition: transform 0.2s ease;
 	}
 
 	header nav ul li a {
 		white-space: nowrap;
 		padding: 0.25rem 0.5rem;
+		display: inline-block;
+		transition: all 0.2s ease;
+		position: relative;
+		text-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
+	}
+
+	header nav ul li:hover {
+		transform: perspective(200px) rotateY(-35deg) translateX(-10px);
+	}
+
+	header nav ul li + li {
+		margin-left: -0.5rem; /* Overlap items slightly */
 	}
 
 	.lang-switcher {
