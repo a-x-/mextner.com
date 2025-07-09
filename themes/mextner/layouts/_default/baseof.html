@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="{{ .Site.Home.RelPermalink }}" class="logo">Mextner Lab</a>
+            <nav>
+                <ul>
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+                <div class="lang-switcher">
+                    {{ range $i, $lang := .Site.Languages }}
+                        {{ if $i }}&nbsp;/&nbsp;{{ end }}
+                        {{ if eq . $.Site.Language }}
+                            <span>{{ upper .Lang }}</span>
+                        {{ else }}
+                            {{ $translation := "" }}
+                            {{ $translationFound := false }}
+                            {{ range $.Page.Translations }}
+                                {{ if eq .Language.Lang $lang.Lang }}
+                                    {{ $translation = .Permalink }}
+                                    {{ $translationFound = true }}
+                                {{ end }}
+                            {{ end }}
+
+                            {{ if $translationFound }}
+                                <a href="{{ $translation }}">{{ upper .Lang }}</a>
+                            {{ else }}
+                                {{ $page := . }}
+                                {{ $targetLang := $lang.Lang }}
+                                {{ $targetSite := index $.Sites 0 }}
+                                {{ range $.Sites }}
+                                    {{ if eq .Language.Lang $targetLang }}
+                                        {{ $targetSite = . }}
+                                    {{ end }}
+                                {{ end }}
+                                
+                                {{ $newPermalink := "" }}
+                                {{ if and (ne $.Kind "404") (ne $.Kind "home") }}
+                                    {{ $path := "" }}
+                                    {{ if $.File }}
+                                        {{ $path = $.File.Path }}
+                                    {{ else if $.Path }}
+                                        {{ $path = $.Path }}
+                                    {{ end }}
+                                    {{ $newPath := replace $path (printf "%s/" $.Site.Language.Lang) (printf "%s/" $targetLang) }}
+                                    {{ with $targetSite.GetPage $newPath }}
+                                        {{ $newPermalink = .Permalink }}
+                                    {{ end }}
+                                {{ end }}
+
+                                {{ if $newPermalink }}
+                                     <a href="{{ $newPermalink }}">{{ upper $lang.Lang }}</a>
+                                {{ else }}
+                                    <a href="{{ $targetSite.Home.Permalink }}">{{ upper $lang.Lang }}</a>
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {{ block "main" . }}{{ end }}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <h4>{{ T "contact_us" }}</h4>
+                <p>Telegram: <a href="https://t.me/mextner">@mextner</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>{{ T "social_media" }}</h4>
+                <ul>
+                    <li><a href="https://linkedin.com/in/FrontDev" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>{{ T "legal_information" }}</h4>
+                <p>© {{ now.Format "2006" }} Mextner Lab. — {{ T "resident_of_it_park" }}</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

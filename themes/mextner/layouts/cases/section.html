@@ -1,0 +1,79 @@
+{{ define "main" }}
+<section>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</section>
+
+<section id="case-list">
+  {{ $xbank := "" }}
+  {{ $otherCases := slice }}
+  
+  {{ range .Pages }}
+    {{ if in .Title "X-Bank" }}
+      {{ $xbank = . }}
+    {{ else }}
+      {{ $otherCases = $otherCases | append . }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $xbank }}
+  <article class="case-item case-featured" onclick="window.location.href='{{ $xbank.RelPermalink }}'" style="cursor: pointer;">
+    <div class="case-featured-content">
+      <h2>{{ $xbank.Title }}</h2>
+      {{ if $xbank.Params.summary }}
+        <p>{{ $xbank.Params.summary }}</p>
+      {{ else }}
+        {{ $content := $xbank.Content | plainify | truncate 300 }}
+        <p>{{ $content }}</p>
+      {{ end }}
+      {{ $readMore := T "read_more" }}
+      {{ if and $readMore (ne (trim $readMore " ") "") }}
+      <span class="btn">{{ $readMore }}</span>
+      {{ end }}
+    </div>
+    {{ if $xbank.Params.image }}
+    <div class="case-featured-image">
+      <img src="{{ $xbank.Params.image }}" alt="{{ $xbank.Title }}">
+    </div>
+    {{ else }}
+      {{ $images := findRE `src="([^"]+\.(jpg|jpeg|png))"` $xbank.Content }}
+      {{ if gt (len $images) 0 }}
+        {{ $firstImage := index $images 0 }}
+        {{ $src := replaceRE `src="([^"]+)"` "$1" $firstImage }}
+        <div class="case-featured-image">
+          <img src="{{ $src }}" alt="{{ $xbank.Title }}">
+        </div>
+      {{ end }}
+    {{ end }}
+  </article>
+  {{ end }}
+  
+  <div class="case-grid">
+    {{ range $otherCases }}
+    {{ $bgImage := "" }}
+    {{ if .Params.image }}
+      {{ $bgImage = .Params.image }}
+    {{ else }}
+      {{ $images := findRE `src="([^"]+\.(jpg|jpeg|png))"` .Content }}
+      {{ if gt (len $images) 0 }}
+        {{ $firstImage := index $images 0 }}
+        {{ $bgImage = replaceRE `src="([^"]+)"` "$1" $firstImage }}
+      {{ end }}
+    {{ end }}
+    <article class="case-item" {{ if $bgImage }}data-image="{{ $bgImage }}" style="background-image: url('{{ $bgImage }}')"{{ end }} onclick="window.location.href='{{ .RelPermalink }}'">
+      <h2>{{ .Title }}</h2>
+      {{ if .Params.summary }}
+        <p>{{ .Params.summary }}</p>
+      {{ else }}
+        {{ $content := .Content | plainify | truncate 200 }}
+        <p>{{ $content }}</p>
+      {{ end }}
+      {{ $readMore := T "read_more" }}
+      {{ if and $readMore (ne (trim $readMore " ") "") }}
+      <span class="btn">{{ $readMore }}</span>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }} 

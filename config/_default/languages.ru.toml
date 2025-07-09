@@ -1,0 +1,7 @@
+title = 'Mextner'
+languageName = 'Русский'
+contentDir = 'content/ru'
+weight = 1
+
+[params]
+  description = "Консалтинг и решения на базе RAG" 

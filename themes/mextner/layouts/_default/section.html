@@ -1,0 +1,33 @@
+{{ define "main" }}
+    <article>
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+        
+        {{ if eq .Section "blog" }}
+        <div class="blog-list">
+            {{ range .Paginator.Pages }}
+            <div class="blog-item" onclick="window.location.href='{{ .Permalink }}'" style="cursor: pointer;">
+                {{ if .Params.image }}
+                <div class="blog-item-image">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                </div>
+                {{ end }}
+                <div class="blog-item-content">
+                    <h2>{{ .Title }}</h2>
+                    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+                    {{ if .Params.summary }}
+                        <p>{{ .Params.summary }}</p>
+                    {{ else }}
+                        {{ $content := .Content | plainify | truncate 200 }}
+                        <p>{{ $content }}</p>
+                    {{ end }}
+                    <span class="read-more">{{ i18n "read_more" }}</span>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        
+        {{ template "_internal/pagination.html" . }}
+        {{ end }}
+    </article>
+{{ end }} 

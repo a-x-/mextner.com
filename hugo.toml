@@ -1,0 +1,48 @@
+baseURL = 'https://mextner.com/'
+languageCode = 'en-us'
+title = 'Mextner Lab'
+theme = 'mextner'
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+
+[params]
+  author = "Mextner"
+  description = "Consulting & RAG-powered Solutions"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "services"
+    name = "services"
+    url = "/services/"
+    weight = 2
+  [[menu.main]]
+    identifier = "workshops"
+    name = "workshops"
+    url = "/workshops/"
+    weight = 3
+  [[menu.main]]
+    identifier = "cases"
+    name = "cases"
+    url = "/cases/"
+    weight = 4
+  [[menu.main]]
+    identifier = "cto"
+    name = "cto"
+    url = "/cto/"
+    weight = 5
+  [[menu.main]]
+    identifier = "blog"
+    name = "blog"
+    url = "/blog/"
+    weight = 6

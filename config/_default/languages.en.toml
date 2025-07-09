@@ -1,0 +1,7 @@
+title = 'Mextner'
+languageName = 'English'
+contentDir = 'content/en'
+weight = 2
+
+[params]
+  description = "Consulting & RAG-powered Solutions" 

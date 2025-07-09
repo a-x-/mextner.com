@@ -1,0 +1,35 @@
+[home]
+other = "Home"
+[services]
+other = "Services"
+[workshops]
+other = "Workshops"
+[cases]
+other = "Cases"
+[cto]
+other = "CTO"
+[blog]
+other = "Blog"
+[contact]
+other = "Contact"
+
+[contact_us]
+other = "Contact Us"
+
+[social_media]
+other = "Social Media"
+
+[legal_information]
+other = "Legal Information"
+
+[all_rights_reserved]
+other = "All rights reserved"
+
+[resident_of_it_park]
+other = "Resident of IT Park Uzbekistan"
+
+[read_more]
+other = "Continue reading"
+
+[discuss_on_linkedin]
+other = "Discuss this post on" 

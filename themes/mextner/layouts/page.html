@@ -1,0 +1,54 @@
+{{ define "main" }}
+<article>
+    {{ if eq .Section "blog" }}
+    <nav class="blog-nav-top">
+        <a href="{{ with .Site.GetPage "/blog" }}{{ .RelPermalink }}{{ end }}" class="back-to-blog">
+            <span class="arrow">←</span> {{ i18n "back_to_blog" }}
+        </a>
+    </nav>
+    {{ end }}
+    
+    {{ if not .Date.IsZero }}
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{ end }}
+    
+    <h1>{{ .Title }}</h1>
+    
+    {{ if and (eq .Section "blog") .Params.image }}
+    <div class="blog-header-image">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+    </div>
+    {{ end }}
+    
+    {{ .Content }}
+    
+    {{ if eq .Section "blog" }}
+    <div class="blog-footer">
+        {{ if .Params.linkedin_url }}
+        <hr>
+        <p>{{ i18n "discuss_on_linkedin" }} <a href="{{ .Params.linkedin_url }}" target="_blank" rel="noopener">LinkedIn</a></p>
+        {{ end }}
+        
+        <nav class="blog-nav-bottom">
+            <div class="nav-links">
+                {{ with .PrevInSection }}
+                <div class="nav-prev">
+                    <span class="nav-label">{{ i18n "previous_post" }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+                
+                {{ with .NextInSection }}
+                <div class="nav-next">
+                    <span class="nav-label">{{ i18n "next_post" }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+        </nav>
+    </div>
+    {{ end }}
+</article>
+{{ end }}

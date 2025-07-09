@@ -1,0 +1,35 @@
+[home]
+other = "Главная"
+[services]
+other = "Услуги"
+[workshops]
+other = "Воркшопы"
+[cases]
+other = "Кейсы"
+[cto]
+other = "CTO"
+[blog]
+other = "Блог"
+[contact]
+other = "Контакты"
+
+[contact_us]
+other = "Свяжитесь с нами"
+
+[social_media]
+other = "Соцсети"
+
+[legal_information]
+other = "Юридическая информация"
+
+[all_rights_reserved]
+other = "Все права защищены"
+
+[resident_of_it_park]
+other = "Резидент IT-Парка Узбекистана"
+
+[read_more]
+other = "Подробнее"
+
+[discuss_on_linkedin]
+other = "Обсудить этот пост в" 
