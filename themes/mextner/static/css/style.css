@@ -138,7 +138,8 @@ header nav ul li a:hover {
 /* CTO link with small-caps */
 header nav ul li a[href*="/cto"] {
 	font-variant: small-caps;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.1em;
+	font-size: 0.9rem;
 }
 
 .lang-switcher {

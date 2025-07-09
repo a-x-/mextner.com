@@ -9,6 +9,7 @@ defaultContentLanguageInSubdir = true
 [params]
   author = "Mextner"
   description = "Consulting & RAG-powered Solutions"
+  defaultImage = "/images/mextner-logo-shad.png"
 
 [markup]
   [markup.goldmark]

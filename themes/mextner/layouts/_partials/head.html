@@ -1,5 +1,59 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- Basic Meta Tags -->
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 200 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Params.image }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{ else }}
+{{ $images := findRE "<img[^>]*src=\"([^\"]+)\"[^>]*>" .Content 1 }}
+{{ if $images }}
+  {{ $firstImg := index (findRE "src=\"([^\"]+)\"" (index $images 0)) 0 }}
+  {{ $imgSrc := replaceRE "src=\"([^\"]+)\"" "$1" $firstImg }}
+  <meta property="og:image" content="{{ $imgSrc | absURL }}">
+{{ else }}
+  {{ with .Site.Params.defaultImage }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{ end }}
+{{ end }}
+{{ end }}
+<meta property="og:locale" content="{{ .Language.Lang }}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 200 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+{{ with .Params.image }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ else }}
+{{ $images := findRE "<img[^>]*src=\"([^\"]+)\"[^>]*>" .Content 1 }}
+{{ if $images }}
+  {{ $firstImg := index (findRE "src=\"([^\"]+)\"" (index $images 0)) 0 }}
+  {{ $imgSrc := replaceRE "src=\"([^\"]+)\"" "$1" $firstImg }}
+  <meta name="twitter:image" content="{{ $imgSrc | absURL }}">
+{{ else }}
+  {{ with .Site.Params.defaultImage }}
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{ end }}
+{{ end }}
+{{ end }}
+
+<!-- Additional SEO -->
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+{{ end }}
+
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
