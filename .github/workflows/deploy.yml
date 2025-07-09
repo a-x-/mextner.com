@@ -39,3 +39,8 @@ jobs:
           --exclude 'Thumbs.db' \
           public/ \
           www-data@104.248.84.190:/var/www/mextner.com/
+
+    - name: Copy Caddyfile to server
+      run: |
+        scp Caddyfile www-data@104.248.84.190:/home/www-data/Caddyfile.new
+        ssh www-data@104.248.84.190 "echo 'Caddyfile uploaded to /home/www-data/Caddyfile.new'"
