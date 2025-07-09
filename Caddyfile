@@ -50,11 +50,27 @@ mextner.com {
         file_server
     }
 
-    # Cache static assets
-    @static {
-        path *.css *.js *.jpg *.jpeg *.png *.gif *.svg *.woff *.woff2 *.ttf *.eot
+    # Always revalidate CSS and JS
+    @css_js {
+        path *.css *.js
     }
-    header @static {
+    header @css_js {
+        Cache-Control "no-cache"
+    }
+
+    # Cache images for 1 hour
+    @images {
+        path *.jpg *.jpeg *.png *.gif *.svg *.webp *.ico
+    }
+    header @images {
+        Cache-Control "public, max-age=3600"
+    }
+
+    # Cache fonts for 1 year
+    @fonts {
+        path *.woff *.woff2 *.ttf *.eot *.otf
+    }
+    header @fonts {
         Cache-Control "public, max-age=31536000, immutable"
     }
 
