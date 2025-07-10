@@ -77,21 +77,6 @@ a {
 	justify-content: space-between;
 }
 
-.case-grid .case-item[data-image]::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: linear-gradient(to bottom, 
-		rgba(255, 255, 255, 0.75) 0%, 
-		rgba(255, 255, 255, 0.85) 50%,
-		rgba(255, 255, 255, 0.95) 100%);
-	z-index: 0;
-	border-radius: 5px;
-}
-
 .case-grid .case-item > * {
 	position: relative;
 	z-index: 1;
@@ -293,12 +278,6 @@ button[type="submit"]:hover {
 	}
 	.case-featured {
 		background: #2a2a2a;
-	}
-	.case-grid .case-item[data-image]::before {
-		background: linear-gradient(to bottom,
-			rgba(34, 34, 34, 0.75) 0%,
-			rgba(34, 34, 34, 0.85) 50%,
-			rgba(34, 34, 34, 0.95) 100%);
 	}
 	.btn {
 		background-color: transparent;
